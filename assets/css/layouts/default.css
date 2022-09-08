@@ -1,0 +1,30 @@
+.pkdx-navbar {
+  margin-bottom: 6rem;
+  height: 64px;
+  position: relative;
+}
+
+.pkdx-navbar:after {
+  border-top: 60px solid var(--color-bg-variant);
+  border-right: 40px solid transparent;
+  height: 0;
+  width: 50%;
+  position: absolute;
+  content: '';
+  margin-top: 50px;
+  margin-left: -20px;
+}
+
+.pkdx-navbar-logo img {
+  height: 68px;
+  position: absolute;
+  z-index: 999;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.pkdx-content {
+  border: 10px solid var(--color-bg-variant);
+  border-radius: 10px;
+  padding: 20px;
+}
