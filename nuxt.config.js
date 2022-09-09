@@ -30,8 +30,7 @@ export default {
   css: ['~/assets/css/index.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
-
+  plugins: ['~/plugins/axios', '~/plugins/infiniteloading'],
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -44,7 +43,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -58,13 +61,24 @@ export default {
       themes: {
         light: {
           background: '#aa3030',
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
+          normmal: '#A8A77A',
+          fire: '#EE8130',
+          water: '#6390F0',
+          electric: '#F7D02C',
+          grass: '#7AC74C',
+          ice: '#96D9D6',
+          fighting: '#C22E28',
+          poison: '#A33EA1',
+          ground: '#E2BF65',
+          flying: '#A98FF3',
+          psychic: '#F95587',
+          bug: '#A6B91A',
+          rock: '#B6A136',
+          ghost: '#735797',
+          dragon: '#6F35FC',
+          dark: '#705746',
+          steel: '#B7B7CE',
+          fairy: '#D685AD',
         },
       },
     },
@@ -72,4 +86,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  env: {
+    IMAGE_URL:
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
+    BASE_URL: 'https://pokeapi.co/api/v2/',
+  },
 }

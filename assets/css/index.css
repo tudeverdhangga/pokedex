@@ -45,6 +45,12 @@ body {
   background-color: var(--color-grey);
 }
 
+.d-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* =============== GENERAL STYLES =============== */
 .container {
   width: var(--container-width-lg);
