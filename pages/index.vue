@@ -1,11 +1,7 @@
 <template>
   <div class="d-flex">
     <PokemonDetail :id="detailId" :baseUrl="baseUrl" />
-    <PokemonList
-      :imageUrl="imageUrl"
-      :baseUrl="baseUrl"
-      @detail="detailPokemon"
-    />
+    <PokemonList :baseUrl="baseUrl" @detail="detailPokemon" />
   </div>
 </template>
 
@@ -20,7 +16,6 @@ export default {
   },
   data() {
     return {
-      imageUrl: process.env.IMAGE_URL,
       baseUrl: process.env.BASE_URL + 'pokemon/',
       detailId: 1,
     }

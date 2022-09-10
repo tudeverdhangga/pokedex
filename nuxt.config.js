@@ -89,7 +89,7 @@ export default {
 
   env: {
     IMAGE_URL:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
     BASE_URL: 'https://pokeapi.co/api/v2/',
   },
 }
