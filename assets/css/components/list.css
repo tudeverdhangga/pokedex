@@ -1,0 +1,13 @@
+.pkdx-list {
+  display: block;
+  width: fit-content;
+  max-height: 58vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pkdx-list__card {
+  display: block;
+  float: right;
+  width: 100%;
+}

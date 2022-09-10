@@ -61,7 +61,7 @@ export default {
       themes: {
         light: {
           background: '#aa3030',
-          normmal: '#A8A77A',
+          normal: '#A8A77A',
           fire: '#EE8130',
           water: '#6390F0',
           electric: '#F7D02C',
@@ -89,7 +89,7 @@ export default {
 
   env: {
     IMAGE_URL:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/',
     BASE_URL: 'https://pokeapi.co/api/v2/',
   },
 }

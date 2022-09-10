@@ -1,54 +1,60 @@
 <template>
   <div>
-    <v-row>
-      <v-col>
+    <FilterBar :baseUrl="baseUrl" @detail="detailPokemon" @list="setPokemons" />
+    <div class="pkdx-list pr-3">
+      <div class="pkdx-list__card">
         <v-row>
           <v-col
             v-for="(pokemon, index) in pokemons"
-            cols="3"
             :key="'pokemon' + index"
+            xs="6"
+            sm="4"
+            md="3"
           >
-            <v-card>
-              <div class="d-center flex-column">
+            <v-card @click="detailPokemon(pokemon.id)" elevation="0">
+              <div class="d-center flex-column pa-2">
                 <img
-                  :src="imageUrl + pokemon.id + '.png'"
+                  :src="imageUrl + pokemon.id + '.gif'"
                   alt="Pokemon Picture"
-                  height="50"
+                  height="30"
+                  class="mt-2"
                 />
-                <p class="p-2">{{ pokemon.name }}</p>
+                <p class="mb-2">{{ pokemon.name }}</p>
               </div>
             </v-card>
           </v-col>
         </v-row>
-      </v-col>
-      <v-col cols="4">
-        <PokemonDetail :id="detailId" :baseUrl="baseUrl" />
-      </v-col>
-    </v-row>
-    <infinite-loading spinner="spiral" @infinite="infiniteScroll" />
+      </div>
+      <infinite-loading spinner="spiral" @infinite="infiniteScroll" />
+    </div>
   </div>
 </template>
 
 <script>
-import PokemonDetail from './PokemonDetail.vue'
+import FilterBar from '~/components/FilterBar.vue'
+
 export default {
+  components: {
+    FilterBar,
+  },
   props: ['imageUrl', 'baseUrl'],
   data() {
     return {
+      type: 'all',
       pokemons: [],
       nextUrl: '',
       currentUrl: '',
       errorMsg: '',
-      detailId: 1,
     }
   },
-  components: { PokemonDetail },
   created() {
     this.currentUrl = this.baseUrl
     this.fetchData()
   },
   methods: {
     async fetchData(state) {
+      this.pokemons = []
+
       await this.$axios
         .get(this.currentUrl)
         .then((res) => {
@@ -76,6 +82,17 @@ export default {
         this.fetchData($state)
       }, 500)
     },
+    detailPokemon(id) {
+      this.$emit('detail', id)
+    },
+    setPokemons(pokemons) {
+      if (pokemons === 'all') this.fetchData()
+      else this.pokemons = pokemons
+    },
   },
 }
 </script>
+
+<style>
+@import '~/assets/css/components/list.css';
+</style>
