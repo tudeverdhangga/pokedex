@@ -62,6 +62,7 @@ export default {
   created() {
     this.currentUrl = this.baseUrl
     this.fetchData()
+    this.allPokemons = this.pokemons
   },
   methods: {
     async fetchData(state) {
@@ -97,12 +98,7 @@ export default {
       this.$emit('detail', id)
     },
     setPokemons(pokemons) {
-      if (pokemons === 'all') {
-        this.pokemons = this.allPokemons
-      } else {
-        this.allPokemons = this.pokemons
-        this.pokemons = pokemons
-      }
+      this.pokemons = pokemons === 'all' ? this.allPokemons : pokemons
     },
   },
 }
