@@ -1,4 +1,5 @@
 # pokedex
+![preview_image](https://user-images.githubusercontent.com/44469018/189473870-4756ff2a-e08a-46c6-89bd-03da83988c41.jpg)
 
 ## Build Setup
 
